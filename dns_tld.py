@@ -1,9 +1,11 @@
 import socket
-from dns_utils import log, parse_query
+import re
+from dns_utils import log, parse_query, build_response
 
 SECOND_DNS_DATABASE = {
-    "google": {"ip": "127.0.0.1", "port": 5355},
-    "facebook": {"ip": "127.0.0.1", "port": 5355},
+    "google": {"ip": "127.0.0.1", "port": 8053},
+    "facebook": {"ip": "127.0.0.1", "port": 8053},
+    "in-addr" : {"ip": "127.0.0.1", "port": 8053},
 }
 
 def start_second_dns_server(ip="127.0.0.1", port=5351):
@@ -23,7 +25,12 @@ def start_second_dns_server(ip="127.0.0.1", port=5351):
             sld = domain.split(".")[-2]  # Extract second-level domain (e.g., "google")
 
             log(f"Second server received query: {domain}, type: {qtype}")
-            if sld in SECOND_DNS_DATABASE:
+            regex = r"^(?=.{1,253}$)(?!-)[A-Za-z0-9-]{1,63}(?<=\w)(\.[A-Za-z0-9-]{1,63})*$"
+            
+            # Use re.match() to check if the domain matches the regex
+            if not re.match(regex, domain):
+                response = build_response(transaction_id, "", 1, error_code=1)  # Format Error
+            elif sld in SECOND_DNS_DATABASE:
                 third_level = SECOND_DNS_DATABASE[sld]
                 try:
                     forward_socket = socket.socket(socket.AF_INET, socket.SOCK_DGRAM)
@@ -37,12 +44,16 @@ def start_second_dns_server(ip="127.0.0.1", port=5351):
                     log(f"Error while forwarding request to third-level server: {e}")
             else:
                 # NXDOMAIN if second-level domain is not found
-                response = transaction_id + b"\x81\x83" + b"\x00\x01\x00\x00\x00\x00\x00\x00"
-                sock.sendto(response, addr)
+                response = build_response(transaction_id, domain, qtype, error_code=3)
+                
         except socket.timeout:
             log("Request timeout. No response received.")
         except Exception as e:
-            log(f"Error handling request: {e}")
+            log(f"Internal server error: {e}")
+            response = build_response(transaction_id, "", 1, error_code=2)  # Server Failure
+        finally:
+            sock.sendto(response, addr)
 
 if __name__ == "__main__":
     start_second_dns_server()
+    
