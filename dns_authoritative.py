@@ -27,6 +27,18 @@ THIRD_DNS_DATABASE = {
     "1.0.0.127.in-addr.arpa": {
         "PTR": [{"ttl": 300, "value": "localhost"}],
     },
+    "wikipedia.org": {
+    "A": [{"ttl": 300, "value": "91.198.174.192"}],
+    "AAAA": [{"ttl": 300, "value": "2620:0:862:ed1a::1"}],
+    "MX": [{"ttl": 300, "value": "mx1001.wikimedia.org", "preference": 10}],
+    "NS": [
+        {"ttl": 300, "value": "ns0.wikimedia.org"},
+        {"ttl": 300, "value": "ns1.wikimedia.org"},
+        {"ttl": 300, "value": "ns2.wikimedia.org"}
+    ],
+    "CNAME": [{"ttl": 300, "value": "wiki-alias.example.com"}],
+    },
+
 }
 
 def start_third_dns_server(ip="127.0.0.1", port=8053):
@@ -62,6 +74,7 @@ def start_third_dns_server(ip="127.0.0.1", port=8053):
             response = build_response(transaction_id, "", 1, error_code=2)  # Server Failure
         finally:
             sock.sendto(response, addr)
+            log(f"Forwarded response back to TLD server")
 
 if __name__ == "__main__":
     start_third_dns_server()

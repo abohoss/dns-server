@@ -2814,3 +2814,343 @@
 2024-12-29 13:45:46 - Forwarding query to second-level server: 127.0.0.1:5351
 2024-12-29 13:45:46 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
 2024-12-29 13:45:46 - Forwarded response back to ('127.0.0.1', 50778)
+2024-12-29 21:49:51 - Root DNS server started on 127.0.0.1:53
+2024-12-29 21:49:57 - Second-level DNS server started on 127.0.0.1:5351
+2024-12-29 21:50:03 - Third-level DNS server started on 127.0.0.1:8053
+2024-12-29 21:50:40 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 21:50:40 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 21:50:40 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 21:50:40 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 21:50:40 - Forwarded response back to ('127.0.0.1', 59344)
+2024-12-29 21:50:40 - Root server received query: google.com, type: 1
+2024-12-29 21:50:40 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 21:50:40 - Second server received query: google.com, type: 1
+2024-12-29 21:50:40 - Third server received query: google.com, type: 1
+2024-12-29 21:50:40 - Forwarded response back to ('127.0.0.1', 59347)
+2024-12-29 21:50:40 - Root server received query: google.com, type: 28
+2024-12-29 21:50:40 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 21:50:40 - Second server received query: google.com, type: 28
+2024-12-29 21:50:40 - Third server received query: google.com, type: 28
+2024-12-29 21:50:40 - Forwarded response back to ('127.0.0.1', 59350)
+2024-12-29 22:51:17 - Root DNS server started on 127.0.0.1:53
+2024-12-29 23:00:13 - Second-level DNS server started on 127.0.0.1:5351
+2024-12-29 23:00:21 - Third-level DNS server started on 127.0.0.1:8053
+2024-12-29 23:05:19 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:05:19 - Internal server error: ('1.0.0.127.in-addr.arpa', 12)
+2024-12-29 23:05:19 - Forwarded response back to ('127.0.0.1', 59106)
+2024-12-29 23:05:19 - Root server received query: google.com, type: 1
+2024-12-29 23:05:19 - Internal server error: ('google.com', 1)
+2024-12-29 23:05:19 - Forwarded response back to ('127.0.0.1', 59107)
+2024-12-29 23:05:19 - Root server received query: google.com, type: 28
+2024-12-29 23:05:19 - Internal server error: ('google.com', 28)
+2024-12-29 23:05:19 - Forwarded response back to ('127.0.0.1', 59108)
+2024-12-29 23:05:19 - Root server received query: google.com, type: 1
+2024-12-29 23:05:19 - Internal server error: ('google.com', 1)
+2024-12-29 23:05:19 - Forwarded response back to ('127.0.0.1', 59109)
+2024-12-29 23:05:19 - Root server received query: google.com, type: 28
+2024-12-29 23:05:20 - Internal server error: ('google.com', 28)
+2024-12-29 23:05:20 - Forwarded response back to ('127.0.0.1', 59110)
+2024-12-29 23:10:51 - Root DNS server started on 127.0.0.1:53
+2024-12-29 23:10:54 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:10:54 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:10:54 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:10:54 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-29 23:10:54 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:10:54 - Forwarded response back to root server
+2024-12-29 23:10:54 - Forwarded response back to ('127.0.0.1', 60486)
+2024-12-29 23:10:54 - Root server received query: google.com, type: 1
+2024-12-29 23:10:54 - Second server received query: google.com, type: 1
+5351
+2024-12-29 23:10:54 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-29 23:10:54 - Third server received query: google.com, type: 1
+2024-12-29 23:10:54 - Forwarded response back to TLD server
+2024-12-29 23:10:54 - Forwarded response back to root server
+2024-12-29 23:10:54 - Forwarded response back to ('127.0.0.1', 60489)
+2024-12-29 23:10:54 - Root server received query: google.com, type: 28
+2024-12-29 23:10:54 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:10:54 - Second server received query: google.com, type: 28
+2024-12-29 23:10:54 - Third server received query: google.com, type: 28
+053
+2024-12-29 23:10:54 - Forwarded response back to TLD server
+2024-12-29 23:10:54 - Forwarded response back to root server
+2024-12-29 23:10:54 - Forwarded response back to ('127.0.0.1', 60492)
+2024-12-29 23:16:11 - Root DNS server started on 127.0.0.1:53
+2024-12-29 23:16:17 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:16:17 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:16:17 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:16:17 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-29 23:16:17 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:16:17 - Forwarded response back to TLD server
+2024-12-29 23:16:17 - Forwarded response back to root server
+2024-12-29 23:16:17 - Forwarded response back to ('127.0.0.1', 65081)
+2024-12-29 23:16:17 - Root server received query: google.com, type: 1
+2024-12-29 23:16:17 - Second server received query: google.com, type: 1
+5351
+2024-12-29 23:16:17 - Third server received query: google.com, type: 1
+8053
+2024-12-29 23:16:17 - Forwarded response back to TLD server
+2024-12-29 23:16:17 - Forwarded response back to root server
+ 65084)
+2024-12-29 23:16:17 - Root server received query: google.com, type: 28
+2024-12-29 23:16:17 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:16:17 - Second server received query: google.com, type: 28
+2024-12-29 23:16:17 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-29 23:16:17 - Third server received query: google.com, type: 28
+2024-12-29 23:16:17 - Forwarded response back to root server2024-12-29 23:16:17 - Forwarded response back to ('127.0.0.1', 65087)
+2024-12-29 23:16:32 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:16:32 - [CACHE HIT] Responding from cache
+2024-12-29 23:18:00 - Root DNS server started on 127.0.0.1:53
+2024-12-29 23:18:07 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:18:07 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:18:07 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:18:07 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-29 23:18:07 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:18:07 - Forwarded response back to TLD server
+
+2024-12-29 23:18:07 - Forwarded response back to ('127.0.0.1', 54449)
+2024-12-29 23:18:07 - Root server received query: google.com, type: 1
+2024-12-29 23:18:07 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:18:07 - Third server received query: google.com, type: 1
+8053
+2024-12-29 23:18:07 - Forwarded response back to root server
+2024-12-29 23:18:07 - Forwarded response back to ('127.0.0.1', 54452)
+2024-12-29 23:18:07 - Root server received query: google.com, type: 28
+2024-12-29 23:18:07 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 23:18:07 - Second server received query: google.com, type: 28
+2024-12-29 23:18:07 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-29 23:18:07 - Third server received query: google.com, type: 28
+2024-12-29 23:18:07 - Forwarded response back to root server
+2024-12-29 23:18:07 - Forwarded response back to TLD server
+2024-12-29 23:18:07 - Forwarded response back to ('127.0.0.1', 54455)
+2024-12-29 23:18:10 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:18:10 - [CACHE HIT] Responding from cache
+2024-12-29 23:18:10 - Forwarded response back to ('127.0.0.1', 58754)
+2024-12-29 23:18:10 - Root server received query: google.com, type: 1
+2024-12-29 23:18:10 - [CACHE HIT] Responding from cache
+2024-12-29 23:18:10 - Forwarded response back to ('127.0.0.1', 58755)
+2024-12-29 23:18:10 - Root server received query: google.com, type: 28
+2024-12-29 23:18:10 - [CACHE HIT] Responding from cache
+2024-12-29 23:18:10 - Forwarded response back to ('127.0.0.1', 58756)
+2024-12-29 23:56:51 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 23:56:51 - [CACHE HIT] Responding from cache
+2024-12-29 23:56:51 - Forwarded response back to ('127.0.0.1', 50323)
+2024-12-29 23:56:51 - Root server received query: google.com, type: 1
+2024-12-29 23:56:51 - [CACHE HIT] Responding from cache
+2024-12-29 23:56:51 - Forwarded response back to ('127.0.0.1', 50324)
+2024-12-29 23:56:51 - Root server received query: google.com, type: 28
+2024-12-29 23:56:51 - [CACHE HIT] Responding from cache
+2024-12-29 23:56:51 - Forwarded response back to ('127.0.0.1', 50325)
+2024-12-29 23:57:50 - Root DNS server started on 127.0.0.1:53
+2024-12-30 00:05:10 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:05:10 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:05:10 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:05:10 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:05:10 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:05:10 - Forwarded response back to TLD server
+2024-12-30 00:05:10 - Forwarded response back to ('127.0.0.1', 57178)
+2024-12-30 00:05:10 - Root server received query: google.com, type: 1
+2024-12-30 00:05:10 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:05:10 - Second server received query: google.com, type: 1
+2024-12-30 00:05:10 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:05:10 - Third server received query: google.com, type: 1
+2024-12-30 00:05:10 - Forwarded response back to root server
+2024-12-30 00:05:10 - Forwarded response back to ('127.0.0.1', 57181)
+2024-12-30 00:05:10 - Root server received query: google.com, type: 28
+2024-12-30 00:05:10 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:05:10 - Second server received query: google.com, type: 28
+2024-12-30 00:05:10 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:05:10 - Third server received query: google.com, type: 28
+2024-12-30 00:05:10 - Forwarded response back to root server
+2024-12-30 00:05:10 - Forwarded response back to ('127.0.0.1', 57184)
+2024-12-30 00:42:54 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:42:54 - [CACHE HIT] Responding from cache
+2024-12-30 00:42:54 - Forwarded response back to ('127.0.0.1', 57349)
+2024-12-30 00:42:54 - Root server received query: google.com, type: 1
+2024-12-30 00:42:54 - [CACHE HIT] Responding from cache
+2024-12-30 00:42:54 - Forwarded response back to ('127.0.0.1', 57350)
+2024-12-30 00:42:54 - Root server received query: google.com, type: 28
+2024-12-30 00:42:54 - [CACHE HIT] Responding from cache
+2024-12-30 00:42:54 - Forwarded response back to ('127.0.0.1', 57351)
+2024-12-30 00:44:10 - Root DNS server started on 127.0.0.1:53
+2024-12-30 00:44:17 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:44:17 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:44:17 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:44:17 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:44:17 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:44:17 - Forwarded response back to TLD server
+2024-12-30 00:44:17 - Forwarded response back to root server
+2024-12-30 00:44:17 - Forwarded response back to ('127.0.0.1', 59892)
+2024-12-30 00:44:17 - Root server received query: google.com, type: 1
+2024-12-30 00:44:17 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:44:17 - Second server received query: google.com, type: 1
+2024-12-30 00:44:17 - Third server received query: google.com, type: 1
+8053
+2024-12-30 00:44:17 - Forwarded response back to TLD server
+2024-12-30 00:44:17 - Forwarded response back to root server
+2024-12-30 00:44:17 - Forwarded response back to ('127.0.0.1', 59895)
+2024-12-30 00:44:17 - Root server received query: google.com, type: 28
+2024-12-30 00:44:17 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:44:17 - Second server received query: google.com, type: 28
+2024-12-30 00:44:17 - Third server received query: google.com, type: 28
+053
+2024-12-30 00:44:17 - Forwarded response back to TLD server
+2024-12-30 00:44:17 - Forwarded response back to root server
+2024-12-30 00:44:17 - Forwarded response back to ('127.0.0.1', 59898)
+2024-12-30 00:44:26 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:44:26 - [CACHE HIT] Responding from cache
+2024-12-30 00:44:26 - Forwarded response back to ('127.0.0.1', 65019)
+2024-12-30 00:44:26 - Root server received query: google.com, type: 1
+2024-12-30 00:44:26 - [CACHE HIT] Responding from cache
+2024-12-30 00:44:26 - Forwarded response back to ('127.0.0.1', 65020)
+2024-12-30 00:44:26 - Root server received query: google.com, type: 28
+2024-12-30 00:44:26 - [CACHE HIT] Responding from cache
+2024-12-30 00:44:26 - Forwarded response back to ('127.0.0.1', 65021)
+2024-12-30 00:45:16 - Root DNS server started on 127.0.0.1:53
+2024-12-30 00:45:24 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:45:24 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:45:24 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:45:24 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:45:24 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:45:24 - Forwarded response back to root server
+2024-12-30 00:45:24 - Forwarded response back to ('127.0.0.1', 57175)
+2024-12-30 00:45:24 - Root server received query: google.com, type: 1
+2024-12-30 00:45:24 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:45:24 - Second server received query: google.com, type: 1
+2024-12-30 00:45:24 - Third server received query: google.com, type: 1
+8053
+2024-12-30 00:45:24 - Forwarded response back to TLD server
+2024-12-30 00:45:24 - Forwarded response back to root server
+2024-12-30 00:45:24 - Forwarded response back to ('127.0.0.1', 57178)
+2024-12-30 00:45:24 - Root server received query: google.com, type: 28
+2024-12-30 00:45:24 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:45:24 - Second server received query: google.com, type: 28
+2024-12-30 00:45:24 - Third server received query: google.com, type: 28
+053
+2024-12-30 00:45:24 - Forwarded response back to TLD server
+2024-12-30 00:45:24 - Forwarded response back to root server
+2024-12-30 00:45:24 - Forwarded response back to ('127.0.0.1', 57181)
+2024-12-30 00:45:26 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:45:26 - [CACHE HIT] Responding from cache
+2024-12-30 00:45:26 - Forwarded response back to ('127.0.0.1', 53364)
+2024-12-30 00:45:26 - Root server received query: google.com, type: 1
+2024-12-30 00:45:26 - [CACHE HIT] Responding from cache
+2024-12-30 00:45:26 - Forwarded response back to ('127.0.0.1', 53365)
+2024-12-30 00:45:26 - Root server received query: google.com, type: 28
+2024-12-30 00:45:26 - [CACHE HIT] Responding from cache
+2024-12-30 00:45:26 - Forwarded response back to ('127.0.0.1', 53366)
+2024-12-30 00:46:05 - Root DNS server started on 127.0.0.1:53
+2024-12-30 00:46:09 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:46:09 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:46:09 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:46:09 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:46:09 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:46:09 - Forwarded response back to TLD server
+2024-12-30 00:46:09 - Forwarded response back to root server
+2024-12-30 00:46:09 - Forwarded response back to ('127.0.0.1', 57612)
+2024-12-30 00:46:09 - Root server received query: google.com, type: 1
+2024-12-30 00:46:09 - Second server received query: google.com, type: 1
+2024-12-30 00:46:09 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:46:09 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:46:09 - Third server received query: google.com, type: 1
+2024-12-30 00:46:09 - Forwarded response back to TLD server
+2024-12-30 00:46:09 - Forwarded response back to root server
+2024-12-30 00:46:09 - Forwarded response back to ('127.0.0.1', 57615)
+2024-12-30 00:46:09 - Root server received query: google.com, type: 28
+2024-12-30 00:46:09 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:46:09 - Second server received query: google.com, type: 28
+2024-12-30 00:46:09 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:46:09 - Third server received query: google.com, type: 28
+2024-12-30 00:46:09 - Forwarded response back to TLD server
+2024-12-30 00:46:09 - Forwarded response back to root server
+2024-12-30 00:46:09 - Forwarded response back to ('127.0.0.1', 57618)
+2024-12-30 00:46:12 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:46:12 - [CACHE HIT] Responding from cache
+2024-12-30 00:46:12 - Forwarded response back to ('127.0.0.1', 52267)
+2024-12-30 00:46:12 - Root server received query: google.com, type: 1
+2024-12-30 00:46:12 - [CACHE HIT] Responding from cache
+2024-12-30 00:46:12 - Forwarded response back to ('127.0.0.1', 52268)
+2024-12-30 00:46:12 - Root server received query: google.com, type: 28
+2024-12-30 00:46:12 - [CACHE HIT] Responding from cache
+2024-12-30 00:46:12 - Forwarded response back to ('127.0.0.1', 52269)
+2024-12-30 00:48:38 - Root DNS server started on 127.0.0.1:53
+2024-12-30 00:48:42 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:48:42 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:48:42 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:48:42 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:48:42 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:48:42 - Forwarded response back to TLD server
+2024-12-30 00:48:42 - Forwarded response back to root server
+2024-12-30 00:48:42 - Forwarded response back to ('127.0.0.1', 56197)
+2024-12-30 00:48:42 - Root server received query: google.com, type: 1
+2024-12-30 00:48:42 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:48:42 - Second server received query: google.com, type: 1
+2024-12-30 00:48:42 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:48:42 - Third server received query: google.com, type: 1
+2024-12-30 00:48:42 - Forwarded response back to TLD server
+2024-12-30 00:48:42 - Forwarded response back to root server
+2024-12-30 00:48:42 - Forwarded response back to ('127.0.0.1', 56200)
+2024-12-30 00:48:42 - Root server received query: google.com, type: 28
+2024-12-30 00:48:42 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:48:42 - Third server received query: google.com, type: 28
+053
+2024-12-30 00:48:42 - Forwarded response back to TLD server
+2024-12-30 00:48:42 - Forwarded response back to root server
+2024-12-30 00:48:42 - Forwarded response back to ('127.0.0.1', 56203)
+2024-12-30 00:48:44 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:48:44 - [CACHE HIT] Responding from cache
+2024-12-30 00:48:44 - Forwarded response back to ('127.0.0.1', 56206)
+2024-12-30 00:48:44 - Root server received query: google.com, type: 1
+2024-12-30 00:48:44 - [CACHE HIT] Responding from cache
+2024-12-30 00:48:44 - Forwarded response back to ('127.0.0.1', 56207)
+2024-12-30 00:48:44 - Root server received query: google.com, type: 28
+2024-12-30 00:48:44 - [CACHE HIT] Responding from cache
+2024-12-30 00:48:44 - Forwarded response back to ('127.0.0.1', 56208)
+2024-12-30 00:49:12 - Root DNS server started on 127.0.0.1:53
+2024-12-30 00:49:38 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:49:38 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:49:38 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:49:38 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:49:38 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:49:38 - Forwarded response back to TLD server
+2024-12-30 00:49:38 - Forwarded response back to root server
+2024-12-30 00:49:38 - Forwarded response back to ('127.0.0.1', 61547)
+2024-12-30 00:49:38 - Root server received query: google.com, type: 1
+2024-12-30 00:49:38 - Second server received query: google.com, type: 1
+2024-12-30 00:49:38 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:49:38 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:49:38 - Third server received query: google.com, type: 1
+2024-12-30 00:49:38 - Forwarded response back to TLD server
+2024-12-30 00:49:38 - Forwarded response back to root server
+2024-12-30 00:49:38 - Forwarded response back to ('127.0.0.1', 61550)
+2024-12-30 00:49:38 - Root server received query: google.com, type: 28
+2024-12-30 00:49:38 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:49:38 - Second server received query: google.com, type: 28
+2024-12-30 00:49:38 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:49:38 - Third server received query: google.com, type: 28
+2024-12-30 00:49:38 - Forwarded response back to TLD server
+2024-12-30 00:49:38 - Forwarded response back to root server
+2024-12-30 00:49:38 - Forwarded response back to ('127.0.0.1', 61553)
+2024-12-30 00:59:57 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:59:57 - removed 1.0.0.127.in-addr.arpa from cache
+2024-12-30 00:59:57 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:59:57 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:59:57 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:59:57 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-30 00:59:57 - Forwarded response back to ('127.0.0.1'2024-12-30 00:59:57 - Forwarded response back to root server
+2024-12-30 00:59:57 - Root server received query: google.com, type: 1
+2024-12-30 00:59:57 - removed google.com from cache
+2024-12-30 00:59:57 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-30 00:59:57 - Second server received query: google.com, type: 1
+2024-12-30 00:59:57 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:59:57 - Third server received query: google.com, type: 1
+2024-12-30 00:59:57 - Forwarded response back to root server
+2024-12-30 00:59:57 - Forwarded response back to ('127.0.0.1', 57400)
+2024-12-30 00:59:57 - Root server received query: google.com, type: 28
+2024-12-30 00:59:57 - removed google.com from cache
+2024-12-30 00:59:57 - Second server received query: google.com, type: 28
+351
+2024-12-30 00:59:57 - Forwarding query to third-level server: 127.0.0.1:8053
+2024-12-30 00:59:57 - Third server received query: google.com, type: 28
+2024-12-30 00:59:57 - Forwarded response back to TLD server
+2024-12-30 00:59:57 - Forwarded response back to root server
+2024-12-30 00:59:57 - Forwarded response back to ('127.0.0.1', 57403)

@@ -40,144 +40,7 @@ def find_record(domain, record_type, database):
     return None
 
 
-# def build_response(transaction_id, domain, record_type, records):
-#     """
-#     Build a complete DNS response packet with enhanced record type support.
-    
-#     Args:
-#         transaction_id (bytes): The original query's transaction ID
-#         domain (str): The domain name being queried
-#         record_type (int): DNS record type (1=A, 28=AAAA, 12=PTR, etc.)
-#         records (list): List of record dictionaries to include in response
-    
-#     Returns:
-#         bytes: Fully constructed DNS response packet
-#     """
-#     # Use the original transaction ID
-#     response = transaction_id
-    
-#     # Standard response flags: 
-#     # 0x81 0x80 = Standard Query Response, No Error
-#     response += b"\x81\x80"
-    
-#     # DNS Packet Counts:
-#     # 1 Question, Number of Answer Records, 0 Authority, 0 Additional
-#     response += struct.pack(">HHHH", 1, len(records), 0, 0)
-    
-#     def encode_domain_name(domain_str):
-#         """
-#         Convert domain name to DNS wire format.
-        
-#         Converts a domain like 'example.com' to bytes representing:
-#         - Length of each part
-#         - Bytes of each part
-#         - Null terminator
-#         """
-#         encoded = b""
-#         for part in domain_str.rstrip('.').split('.'):
-#             # Length of part followed by part bytes
-#             encoded += struct.pack("B", len(part)) + part.encode('ascii')
-#         encoded += b"\x00"  # Null terminator
-#         return encoded
-    
-#     # Add encoded domain name to question section
-#     response += encode_domain_name(domain)
-    
-#     # Add query type and class (record_type, IN class)
-#     response += struct.pack(">HH", record_type, 1)
-    
-#     # Answer Section
-#     for record in records:
-#         # Domain name pointer (0xC0 0x0C points to earlier domain name)
-#         response += b"\xc0\x0c"
-        
-#         # Record type, class, TTL
-#         response += struct.pack(">HHI", record_type, 1, record.get("ttl", 300))
-        
-#         # Encode record value based on type
-#         if record_type == 1:  # A record (IPv4)
-#             try:
-#                 # Convert IPv4 to 4-byte representation
-#                 ip_bytes = socket.inet_aton(record["value"])
-#                 # Add length of IP (4 bytes)
-#                 response += struct.pack(">H", 4)
-#                 response += ip_bytes
-#             except OSError:
-#                 raise ValueError(f"Invalid IPv4 address: {record['value']}")
-        
-#         elif record_type == 28:  # AAAA record (IPv6)
-#             try:
-#                 # Convert IPv6 to 16-byte representation
-#                 ip_bytes = socket.inet_pton(socket.AF_INET6, record["value"])
-#                 # Add length of IP (16 bytes)
-#                 response += struct.pack(">H", 16)
-#                 response += ip_bytes
-#             except OSError:
-#                 raise ValueError(f"Invalid IPv6 address: {record['value']}")
-        
-#         elif record_type == 12:  # PTR record (Reverse DNS)
-#             try:
-#                 # Encode the domain name for the PTR record
-#                 ptr_domain = record["value"]
-#                 ptr_encoded = encode_domain_name(ptr_domain)
-                
-#                 # Add length of encoded domain
-#                 response += struct.pack(">H", len(ptr_encoded))
-#                 response += ptr_encoded
-#             except KeyError:
-#                 raise ValueError("PTR record requires a 'value' field with a domain name")
-#         elif record_type == 15:  # MX record (Mail Exchanger)
-#             try:
-#                 # MX record requires preference value and mail server domain
-#                 preference = record.get("preference", 10)
-#                 mx_domain = record["value"]
-                
-#                 # Encode mail server domain name
-#                 mx_encoded = encode_domain_name(mx_domain)
-                
-#                 # Calculate total record length (preference(2) + domain length)
-#                 record_length = 2 + len(mx_encoded)
-                
-#                 # Add record length
-#                 response += struct.pack(">H", record_length)
-                
-#                 # Add preference (2 bytes)
-#                 response += struct.pack(">H", preference)
-                
-#                 # Add encoded domain
-#                 response += mx_encoded
-#             except KeyError:
-#                 raise ValueError("MX record requires a 'value' field with a mail server domain")
-            
-#         elif record_type == 5:
-#             try:
-#                 cname_domain = record["value"]
-#                 cname_encoded = encode_domain_name(cname_domain)
-                
-#                 # Add length of encoded domain
-#                 response += struct.pack(">H", len(cname_encoded))
-#                 response += cname_encoded
-#             except KeyError:
-#                 raise ValueError("CNAME record requires a 'value' field with a target domain name")
-        
-#         elif record_type == 2:  # NS record (Name Server)
-#             try:
-#                 # NS record is a domain name of a name server
-#                 ns_domain = record["value"]
-                
-#                 # Encode name server domain name
-#                 ns_encoded = encode_domain_name(ns_domain)
-                
-#                 # Add length of encoded domain
-#                 response += struct.pack(">H", len(ns_encoded))
-#                 response += ns_encoded
-#             except KeyError:
-#                 raise ValueError("NS record requires a 'value' field with a name server domain")     
-        
-#         else:
-#             raise ValueError(f"Unsupported record type: {record_type}")
-    
-#     return response
+
 def build_response(transaction_id, domain, record_type, records=None, error_code=0):
 
 
@@ -246,3 +109,63 @@ def build_response(transaction_id, domain, record_type, records=None, error_code
                     raise ValueError("PTR record requires a 'value' field with a domain name")
     return response
 
+def get_ttl(response):
+    # Skip the header section (first 12 bytes)
+    header = response[:12]
+    response = response[12:]
+    
+    # Read counts from header
+    qdcount = struct.unpack(">H", header[4:6])[0]  # Question count
+    ancount = struct.unpack(">H", header[6:8])[0]  # Answer count
+    
+    current_pos = 0
+    
+    def skip_name(response, current_pos):
+        """Helper function to skip over a domain name, handling compression"""
+        while True:
+            length = response[current_pos]
+            
+            # Check for compression (first two bits set)
+            if length & 0xC0 == 0xC0:
+                # Compression used - skip two bytes
+                return current_pos + 2
+            
+            if length == 0:
+                # Zero length = root label, we're done
+                return current_pos + 1
+                
+            # Regular label, skip length + label
+            current_pos += 1 + length
+    
+    # Skip the query section
+    pos = 0
+    for _ in range(qdcount):
+        # Skip domain name
+        pos = skip_name(response, pos)
+        # Skip QTYPE and QCLASS (4 bytes)
+        pos += 4
+    
+    # Process answer section
+    ttl = None
+    for _ in range(ancount):
+        # Skip name
+        pos = skip_name(response, pos)
+        
+        # Read TYPE and CLASS (4 bytes)
+        pos += 4
+        
+        # Read TTL (4 bytes)
+        ttl = struct.unpack(">I", response[pos:pos+4])[0]
+        pos += 4
+        
+        # Read RDLENGTH
+        rdlength = struct.unpack(">H", response[pos:pos+2])[0]
+        pos += 2
+        
+        # Skip RDATA
+        pos += rdlength
+        
+        # We've found our first TTL, so we can return it
+        return ttl
+    
+    return ttl

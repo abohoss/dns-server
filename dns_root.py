@@ -1,6 +1,7 @@
 import socket
 import re
-from dns_utils import build_response, log, parse_query
+from dns_utils import build_response, get_ttl, log, parse_query
+import time
 
 ROOT_DNS_DATABASE = {
     "com": {"ip": "127.0.0.1", "port": 5351},
@@ -29,13 +30,19 @@ def start_root_dns_server(ip="127.0.0.1", port=53):
                 # Regular expression for matching a valid domain
             regex = r"^(?=.{1,253}$)(?!-)[A-Za-z0-9-]{1,63}(?<=\w)(\.[A-Za-z0-9-]{1,63})*$"
             
+            if (domain, qtype) in cache:
+                #print(cache[(domain, qtype)][1])
+                if time.time() > cache[(domain, qtype)][1]:
+                    del cache[(domain, qtype)]
+                    log(f"removed {domain} from cache")
+                    
             # Use re.match() to check if the domain matches the regex
             if not re.match(regex, domain):
                 response = build_response(transaction_id, "", 1, error_code=1)  # Format Error
-                
+                   
             elif (domain, qtype) in cache:
-                response = cache[(domain, qtype)]
-                log("Response from cache")
+                response = cache[(domain, qtype)][0]
+                log("[CACHE HIT] Responding from cache")
             # Check if TLD is present in the ROOT_DNS_DATABASE
             elif tld in ROOT_DNS_DATABASE:
                 second_level = ROOT_DNS_DATABASE[tld]
@@ -45,7 +52,8 @@ def start_root_dns_server(ip="127.0.0.1", port=53):
                     forward_socket.sendto(data, (second_level["ip"], second_level["port"]))
                     log(f"Forwarding query to second-level server: {second_level['ip']}:{second_level['port']}")
                     response, _ = forward_socket.recvfrom(512)
-                    cache[(domain, qtype)] = response
+                    ttl = get_ttl(response)
+                    cache[(domain, qtype)] = [response, time.time() + ttl]
                     
                 except socket.timeout:
                     log("Request timeout when forwarding to second-level server.")
