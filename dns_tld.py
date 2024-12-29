@@ -42,6 +42,8 @@ def start_second_dns_server(ip="127.0.0.1", port=5351):
                     log("Request timeout when forwarding to third-level server.")
                 except Exception as e:
                     log(f"Error while forwarding request to third-level server: {e}")
+                    response = build_response(transaction_id, "", 1, error_code=2)  # Server Failure
+                    
             else:
                 # NXDOMAIN if second-level domain is not found
                 response = build_response(transaction_id, domain, qtype, error_code=3)

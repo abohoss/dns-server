@@ -2694,3 +2694,123 @@
 2024-12-26 20:39:12 - Root server received query: google.com, type: 28
 2024-12-26 20:39:12 - Response from cache
 2024-12-26 20:39:12 - Forwarded response back to ('127.0.0.1', 63001)
+2024-12-28 21:18:45 - Root DNS server started on 127.0.0.1:53
+2024-12-28 21:18:51 - Second-level DNS server started on 127.0.0.1:5351
+2024-12-28 21:18:57 - Third-level DNS server started on 127.0.0.1:8053
+2024-12-28 21:19:30 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:19:30 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:19:30 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:19:30 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:19:30 - Forwarded response back to ('127.0.0.1', 57054)
+2024-12-28 21:19:30 - Root server received query: google.com, type: 1
+2024-12-28 21:19:30 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:19:30 - Second server received query: google.com, type: 1
+2024-12-28 21:19:30 - Third server received query: google.com, type: 1
+2024-12-28 21:19:30 - Forwarded response back to ('127.0.0.1', 57057)
+2024-12-28 21:19:30 - Root server received query: google.com, type: 28
+2024-12-28 21:19:30 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:19:30 - Second server received query: google.com, type: 28
+2024-12-28 21:19:30 - Third server received query: google.com, type: 28
+2024-12-28 21:19:30 - Forwarded response back to ('127.0.0.1', 57060)
+2024-12-28 21:20:33 - Root DNS server started on 127.0.0.1:53
+2024-12-28 21:20:49 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:20:49 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:20:49 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:20:49 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:20:49 - Forwarded response back to ('127.0.0.1', 63047)
+2024-12-28 21:20:49 - Root server received query: google.com, type: 1
+2024-12-28 21:20:49 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:20:49 - Second server received query: google.com, type: 1
+2024-12-28 21:20:49 - Third server received query: google.com, type: 1
+2024-12-28 21:20:49 - Forwarded response back to ('127.0.0.1', 63050)
+2024-12-28 21:20:49 - Root server received query: google.com, type: 28
+2024-12-28 21:20:49 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:20:49 - Second server received query: google.com, type: 28
+2024-12-28 21:20:49 - Third server received query: google.com, type: 28
+2024-12-28 21:20:49 - Forwarded response back to ('127.0.0.1', 63053)
+2024-12-28 21:21:03 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:21:03 - Response from cache
+2024-12-28 21:21:03 - Forwarded response back to ('127.0.0.1', 56606)
+2024-12-28 21:21:03 - Root server received query: google.com, type: 1
+2024-12-28 21:21:03 - Response from cache
+2024-12-28 21:21:03 - Forwarded response back to ('127.0.0.1', 56607)
+2024-12-28 21:21:03 - Root server received query: google.com, type: 28
+2024-12-28 21:21:03 - Response from cache
+2024-12-28 21:21:03 - Forwarded response back to ('127.0.0.1', 56608)
+2024-12-28 21:21:18 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-28 21:21:18 - Response from cache
+2024-12-28 21:21:18 - Forwarded response back to ('127.0.0.1', 57161)
+2024-12-28 21:21:18 - Root server received query: facebook.com, type: 1
+2024-12-28 21:21:18 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:21:18 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-28 21:21:18 - Forwarded response back to ('127.0.0.1', 57162)
+2024-12-28 21:21:20 - Root server received query: facebook.com, type: 28
+2024-12-28 21:21:20 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:21:20 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-28 21:21:20 - Forwarded response back to ('127.0.0.1', 57164)
+2024-12-28 21:21:22 - Root server received query: facebook.com, type: 1
+2024-12-28 21:21:22 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:21:22 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-28 21:21:22 - Forwarded response back to ('127.0.0.1', 57166)
+2024-12-28 21:21:24 - Root server received query: facebook.com, type: 28
+2024-12-28 21:21:24 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-28 21:21:24 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-28 21:21:24 - Forwarded response back to ('127.0.0.1', 57168)
+2024-12-29 13:43:34 - Root DNS server started on 127.0.0.1:53
+2024-12-29 13:43:39 - Second-level DNS server started on 127.0.0.1:5351
+2024-12-29 13:43:45 - Third-level DNS server started on 127.0.0.1:8053
+2024-12-29 13:44:05 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 13:44:05 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:05 - Second server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 13:44:05 - Third server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 13:44:05 - Forwarded response back to ('127.0.0.1', 60690)
+2024-12-29 13:44:05 - Root server received query: google.com, type: 1
+2024-12-29 13:44:05 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:05 - Second server received query: google.com, type: 1
+2024-12-29 13:44:05 - Third server received query: google.com, type: 1
+2024-12-29 13:44:05 - Forwarded response back to ('127.0.0.1', 60693)
+2024-12-29 13:44:05 - Root server received query: google.com, type: 28
+2024-12-29 13:44:05 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:05 - Second server received query: google.com, type: 28
+2024-12-29 13:44:05 - Third server received query: google.com, type: 28
+2024-12-29 13:44:05 - Forwarded response back to ('127.0.0.1', 60696)
+2024-12-29 13:44:25 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 13:44:25 - Response from cache
+2024-12-29 13:44:25 - Forwarded response back to ('127.0.0.1', 59624)
+2024-12-29 13:44:25 - Root server received query: facebook.com, type: 1
+2024-12-29 13:44:25 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:25 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:44:25 - Forwarded response back to ('127.0.0.1', 59625)
+2024-12-29 13:44:27 - Root server received query: facebook.com, type: 28
+2024-12-29 13:44:27 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:27 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:44:27 - Forwarded response back to ('127.0.0.1', 62354)
+2024-12-29 13:44:29 - Root server received query: facebook.com, type: 1
+2024-12-29 13:44:29 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:29 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:44:29 - Forwarded response back to ('127.0.0.1', 53592)
+2024-12-29 13:44:31 - Root server received query: facebook.com, type: 28
+2024-12-29 13:44:31 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:44:31 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:44:31 - Forwarded response back to ('127.0.0.1', 53594)
+2024-12-29 13:45:41 - Root DNS server started on 127.0.0.1:53
+2024-12-29 13:45:46 - Root server received query: 1.0.0.127.in-addr.arpa, type: 12
+2024-12-29 13:45:46 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:45:46 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:45:46 - Forwarded response back to ('127.0.0.1', 50770)
+2024-12-29 13:45:46 - Root server received query: facebook.com, type: 1
+2024-12-29 13:45:46 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:45:46 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:45:46 - Forwarded response back to ('127.0.0.1', 50772)
+2024-12-29 13:45:46 - Root server received query: facebook.com, type: 28
+2024-12-29 13:45:46 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:45:46 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:45:46 - Forwarded response back to ('127.0.0.1', 50774)
+2024-12-29 13:45:46 - Root server received query: facebook.com, type: 1
+2024-12-29 13:45:46 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:45:46 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:45:46 - Forwarded response back to ('127.0.0.1', 50776)
+2024-12-29 13:45:46 - Root server received query: facebook.com, type: 28
+2024-12-29 13:45:46 - Forwarding query to second-level server: 127.0.0.1:5351
+2024-12-29 13:45:46 - Error while forwarding request to second-level server: [WinError 10054] An existing connection was forcibly closed by the remote host
+2024-12-29 13:45:46 - Forwarded response back to ('127.0.0.1', 50778)

@@ -51,6 +51,8 @@ def start_root_dns_server(ip="127.0.0.1", port=53):
                     log("Request timeout when forwarding to second-level server.")
                 except Exception as e:
                     log(f"Error while forwarding request to second-level server: {e}")
+                    response = build_response(transaction_id, "", 1, error_code=2)  # Server Failure
+                    
                     
             else:
                 # Send NXDOMAIN response if TLD is not found in the ROOT_DNS_DATABASE
@@ -59,6 +61,7 @@ def start_root_dns_server(ip="127.0.0.1", port=53):
                       
         except socket.timeout:
             log("Request timeout. No response received.")
+            response = build_response(transaction_id, "", 1, error_code=2)  # Server Failure
             
         except Exception as e:
             log(f"Internal server error: {e}")
