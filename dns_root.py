@@ -53,7 +53,8 @@ def start_root_dns_server(ip="127.0.0.1", port=53):
                     log(f"Forwarding query to second-level server: {second_level['ip']}:{second_level['port']}")
                     response, _ = forward_socket.recvfrom(512)
                     ttl = get_ttl(response)
-                    cache[(domain, qtype)] = [response, time.time() + ttl]
+                    if ttl is not False:
+                        cache[(domain, qtype)] = [response, time.time() + ttl]
                     
                 except socket.timeout:
                     log("Request timeout when forwarding to second-level server.")

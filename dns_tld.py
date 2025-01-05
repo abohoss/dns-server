@@ -6,7 +6,7 @@ SECOND_DNS_DATABASE = {
     "google": {"ip": "127.0.0.1", "port": 8053},
     "facebook": {"ip": "127.0.0.1", "port": 8053},
     "in-addr" : {"ip": "127.0.0.1", "port": 8053},
-    "wikipedia": {"ip": "127.0.0.1", "port": 8053},
+    "wikipedia" : {"ip": "127.0.0.1", "port": 8053},
 }
 
 def start_second_dns_server(ip="127.0.0.1", port=5351):
@@ -39,7 +39,7 @@ def start_second_dns_server(ip="127.0.0.1", port=5351):
                     forward_socket.sendto(data, (third_level["ip"], third_level["port"]))
                     log(f"Forwarding query to third-level server: {third_level['ip']}:{third_level['port']}")
                     response, _ = forward_socket.recvfrom(512)
-                    
+                    sock.sendto(response, addr)
                 except socket.timeout:
                     log("Request timeout when forwarding to third-level server.")
                 except Exception as e:

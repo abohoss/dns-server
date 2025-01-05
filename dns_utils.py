@@ -110,62 +110,103 @@ def build_response(transaction_id, domain, record_type, records=None, error_code
     return response
 
 def get_ttl(response):
-    # Skip the header section (first 12 bytes)
-    header = response[:12]
-    response = response[12:]
-    
-    # Read counts from header
-    qdcount = struct.unpack(">H", header[4:6])[0]  # Question count
-    ancount = struct.unpack(">H", header[6:8])[0]  # Answer count
-    
-    current_pos = 0
-    
-    def skip_name(response, current_pos):
-        """Helper function to skip over a domain name, handling compression"""
-        while True:
-            length = response[current_pos]
+    try:
+        # Check minimum length for header
+        if len(response) < 12:
+            return False
             
-            # Check for compression (first two bits set)
-            if length & 0xC0 == 0xC0:
-                # Compression used - skip two bytes
-                return current_pos + 2
+        # Skip the header section (first 12 bytes)
+        header = response[:12]
+        
+        # Check for error flags in header
+        flags = struct.unpack(">H", header[2:4])[0]
+        rcode = flags & 0x000F  # Last 4 bits are response code
+        if rcode != 0:  # Non-zero means error
+            return False
             
-            if length == 0:
-                # Zero length = root label, we're done
-                return current_pos + 1
+        response = response[12:]
+        
+        # Read counts from header
+        qdcount = struct.unpack(">H", header[4:6])[0]  # Question count
+        ancount = struct.unpack(">H", header[6:8])[0]  # Answer count
+        
+        if ancount == 0:  # No answers
+            return False
+        
+        def skip_name(response, current_pos):
+            try:
+                while True:
+                    if current_pos >= len(response):
+                        raise IndexError("Reached end of response while parsing name")
+                        
+                    length = response[current_pos]
+                    
+                    # Check for compression (first two bits set)
+                    if length & 0xC0 == 0xC0:
+                        # Compression used - skip two bytes
+                        if current_pos + 2 > len(response):
+                            raise IndexError("Compression pointer extends beyond response")
+                        return current_pos + 2
+                    
+                    if length == 0:
+                        # Zero length = root label, we're done
+                        return current_pos + 1
+                    
+                    # Regular label, skip length + label
+                    if current_pos + 1 + length > len(response):
+                        raise IndexError("Label extends beyond response")
+                    current_pos += 1 + length
+            except IndexError:
+                return False
+        
+        # Skip the query section
+        pos = 0
+        for _ in range(qdcount):
+            # Skip domain name
+            pos = skip_name(response, pos)
+            if pos is False:  # Error in name parsing
+                return False
                 
-            # Regular label, skip length + label
-            current_pos += 1 + length
-    
-    # Skip the query section
-    pos = 0
-    for _ in range(qdcount):
-        # Skip domain name
-        pos = skip_name(response, pos)
-        # Skip QTYPE and QCLASS (4 bytes)
-        pos += 4
-    
-    # Process answer section
-    ttl = None
-    for _ in range(ancount):
-        # Skip name
-        pos = skip_name(response, pos)
+            # Check if we have enough bytes for QTYPE and QCLASS
+            if pos + 4 > len(response):
+                return False
+            # Skip QTYPE and QCLASS (4 bytes)
+            pos += 4
         
-        # Read TYPE and CLASS (4 bytes)
-        pos += 4
+        # Process answer section
+        ttl = None
+        for _ in range(ancount):
+            # Skip name
+            pos = skip_name(response, pos)
+            if pos is False:
+                return False
+            
+            # Check remaining length for TYPE, CLASS, TTL, and RDLENGTH
+            if pos + 10 > len(response):
+                return False
+            
+            # Read TYPE and CLASS (4 bytes)
+            pos += 4
+            
+            # Read TTL (4 bytes)
+            ttl = struct.unpack(">I", response[pos:pos+4])[0]
+            pos += 4
+            
+            # Read RDLENGTH
+            rdlength = struct.unpack(">H", response[pos:pos+2])[0]
+            pos += 2
+            
+            # Check if RDATA fits in remaining response
+            if pos + rdlength > len(response):
+                return False
+                
+            # Skip RDATA
+            pos += rdlength
+            
+            # We've found our first TTL, so we can return it
+            return ttl
         
-        # Read TTL (4 bytes)
-        ttl = struct.unpack(">I", response[pos:pos+4])[0]
-        pos += 4
-        
-        # Read RDLENGTH
-        rdlength = struct.unpack(">H", response[pos:pos+2])[0]
-        pos += 2
-        
-        # Skip RDATA
-        pos += rdlength
-        
-        # We've found our first TTL, so we can return it
         return ttl
-    
-    return ttl
+        
+    except (struct.error, IndexError):
+        return False
