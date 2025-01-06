@@ -49,7 +49,7 @@ nslookup google.com 127.0.0.1
 ```
 the output:
 ```markdown
-![Screenshot](C:/Users/Ahmed%20hosam/Pictures/Screenshots/Screenshot%202024-12-30%20021233.png)
+![Screenshot](output.png)
 ```
 ---
 ## Configuration
@@ -58,9 +58,9 @@ where the root server works on port: 53
 the tld server works on port: 5351
 the authoritative server works on port: 8053
 you can see the available using netstat command on windows
-`` ```bash ``
+ ```bash 
 netstat -an
-`` ``` ``
+ ``` 
 and you can change these ports and ip address of servers from the declaration of the function in each server file (files are named after their corresponding servers)
 ```python
 def start_root_dns_server(ip="127.0.0.1", port=53):
