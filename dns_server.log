@@ -255,3 +255,6 @@
 2025-01-05 22:38:17 - Root server received query: google.com, type: 28
 2025-01-05 22:38:17 - [CACHE HIT] Responding from cache
 2025-01-05 22:38:17 - Forwarded response back to ('127.0.0.1', 53269)
+2025-01-06 18:37:08 - Root DNS server started on 127.0.0.1:53
+2025-01-06 18:37:09 - Second-level DNS server started on 127.0.0.1:5351
+2025-01-06 18:37:09 - Third-level DNS server started on 127.0.0.1:8053

@@ -7,6 +7,7 @@ SECOND_DNS_DATABASE = {
     "facebook": {"ip": "127.0.0.1", "port": 8053},
     "in-addr" : {"ip": "127.0.0.1", "port": 8053},
     "wikipedia" : {"ip": "127.0.0.1", "port": 8053},
+    "example" : {"ip": "127.0.0.1", "port": 8053},
 }
 
 def start_second_dns_server(ip="127.0.0.1", port=5351):
