@@ -17,7 +17,7 @@ The DNS server features a modular architecture that emphasizes efficient query h
 - [Installation](#installation)
 - [Configuration](#configuration)
 - [Usage Instructions](#usage)
-- [License](#license)
+
 
 
 ---
@@ -32,25 +32,25 @@ Our dns server incorporates key functionalities, including encoding and decoding
 
 Step-by-step instructions:
 
-`` ```bash ``
+```bash 
 # Clone the repository
 git clone https://github.com/abohoss/dns-server.git
 
 # Navigate to the project directory
 cd DNS-SERVER
 
-`` ``` ``
+``` 
 2- change the path to the 3 python servers to their complete paths in the script.bat file in the directory on your machine
 3- double tap the script file to run it on your server
 4- open cmd on any machine on your local network and query the dns server using nslookup and the ip address 127.0.0.0.1 (eg: nslookup google.com 127.0.0.1)
-`` ```bash ``
+```bash 
 nslookup google.com 127.0.0.1
 
-`` ``` ``
+```
 the output:
 ```markdown
 ![Screenshot]("C:\Users\Ahmed hosam\Pictures\Screenshots\Screenshot 2024-12-30 021233.png")
-
+```
 ---
 ## Configuration
 Our servers all work on ip addresss: 127.0.0.1 
