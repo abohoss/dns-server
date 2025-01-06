@@ -1,9 +1,5 @@
-# dns-server
-steps to run our DNS server:
-Installation:
-1- clone the github repo: https://github.com/abohoss/dns-server.git
+# Dns server
 
-# Project Name
 
 [![License](https://img.shields.io/badge/license-MIT-blue.svg)](LICENSE)  
 
@@ -40,17 +36,17 @@ git clone https://github.com/abohoss/dns-server.git
 cd DNS-SERVER
 
 ``` 
-2- change the path to the 3 python servers to their complete paths in the script.bat file in the directory on your machine
-3- double tap the script file to run it on your server
-4- open cmd on any machine on your local network and query the dns server using nslookup and the ip address 127.0.0.0.1 (eg: nslookup google.com 127.0.0.1)
+2- change the path to the 3 python servers to their complete paths in the script.bat file in the directory on your machine     
+3- double tap the script file to run it on your server    
+4- open cmd on any machine on your local network and query the dns server using nslookup and the ip address 127.0.0.0.1 (eg: nslookup google.com 127.0.0.1)    
 ```bash 
 nslookup google.com 127.0.0.1
 
 ```
 the output:
-```markdown
+
 ![Screenshot](output.png)
-```
+
 ---
 ## Configuration
 Our servers all work on ip addresss: 127.0.0.1 
@@ -69,7 +65,7 @@ and similarly for the other servers
 
 ---
 ## Usage Instructions
-if you want to add a new record to the dns server or update an existing record, you should go to the tld server and the authoritative server to add it to their database
+if you want to add a new record to the dns server or update an existing record, you should go to the tld server and the authoritative server to add it to their database     
 in authoritative_server:
 ```python
     "example.com": {
