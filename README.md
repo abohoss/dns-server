@@ -49,7 +49,7 @@ nslookup google.com 127.0.0.1
 ```
 the output:
 ```markdown
-![Screenshot]("C:\Users\Ahmed hosam\Pictures\Screenshots\Screenshot 2024-12-30 021233.png")
+![Screenshot](C:/Users/Ahmed%20hosam/Pictures/Screenshots/Screenshot%202024-12-30%20021233.png)
 ```
 ---
 ## Configuration
@@ -68,7 +68,7 @@ def start_root_dns_server(ip="127.0.0.1", port=53):
 and similarly for the other servers
 
 ---
-### Usage Instructions
+## Usage Instructions
 if you want to add a new record to the dns server or update an existing record, you should go to the tld server and the authoritative server to add it to their database
 in authoritative_server:
 ```python
